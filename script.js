@@ -11,3 +11,9 @@
       counterElement.textContent = counterValue;
     }
     incrementButton.addEventListener('click', handleIncrement);
+   cy.visit(baseUrl);
+cy.on('window:alert', (alertText) => {
+  // Use regular expression to match the alert text
+  expect(alertText).to.match(/^Un-incremented value: 0$/);
+});
+cy.get('#incrementBtn').click();
